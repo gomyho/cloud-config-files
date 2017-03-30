@@ -1,0 +1,11 @@
+如下，启动一个spring boot+spring cloud的应用过程，基于插件模式SpringFactoriesLoader通过从META-INF/spring.factories文件中获取各种插件，做spring cloud的初始化，包括注册中心，配置中心获取资源文件等等。一个很重要的listener就是BootstrapApplicationListener，在该类中启动了一个bootstrap context，他在initialize后，从bootstrap.yml文件中(通过ConfigFileApplicationListener）获取了配置文件服务器配置信息，还有注册中心，服务发现等配置。初始化配置中心的environment信息，进一步交给了application context（通过父子关系）这样从bootstrap context中获取到的environment信息，接着初始化主application context。
+
+其过程：
+
+1.ApplicationContext->started, createAndRefresh->environmentPrepared->得到BootstrapApplicationListener->初始化SpringApplicationBuilder—–>然后初始化BootstrapContext其时序
+
+2.->new SpringApplicatonBuilder.run->started->envronmentPared->applyInitilizers->contextloaded->finished->跳出本Context回到1
+
+接着applyInilizer->此时有了ConfigServerBootStrapConfiguration->initialize各种->contextPared->contextLoaded->refreshContext->finished.
+
+3.bootstrap.yml文件如何加载的ConfigFileApplicationListener它实现的两个接口来实现的。
