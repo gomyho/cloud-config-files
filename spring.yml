@@ -1,0 +1,18 @@
+server:
+  port: outapp
+spring:
+  application:
+    name: app3
+  cloud: 
+    config:
+      server:
+        git: 
+          uri: app3-out app
+logging: 
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+---
+spring: 
+  profiles: aa
+  

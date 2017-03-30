@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  application: 
+    name: app1
+    password: '{cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda'
+  cloud: 
+    config:
+      server:
+        git: 
+          uri: https://github.com/spring-cloud-samples/config-repo
+logging: 
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+nginx:
+  server:
+    name: example.com
+---
+spring:
+  profiles: development
+nginx:
+  server:
+    name: develop.com

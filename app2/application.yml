@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: app2
+  cloud: 
+    config:
+      server:
+        git: 
+          uri: https://github.com/spring-cloud-samples/config-repo
+logging: 
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+---
+spring: 
+  profiles: aa
+  

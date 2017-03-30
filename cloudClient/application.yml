@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: cloudClient
+logging: 
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+---
+spring: 
+  profiles: dev
+  

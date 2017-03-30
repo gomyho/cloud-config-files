@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: cloudService
+---
+spring: 
+  profiles: dev
+hello: 
+  users:  
+    -
+      name: xf
+      age: 24
+    -
+      name: yy
+      age: 23
+
+  
