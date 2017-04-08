@@ -2,7 +2,7 @@ server:
   port: 8084
 spring:
   application:
-    name: cloudServiceb
+    name: cloudServiceOrder
 ---
 spring: 
   profiles: dev
